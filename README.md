@@ -1,3 +1,15 @@
+# Soundreactive WLED via Android Audio Capture
+
+The project aim is to combine the fantastic work by scottlawsonbc on his audio-reactive-led-strip with the work or doktormerlin and his HyperionVisualizer
+
+You should be able to play any audio on the android device and a visualisation is created and sent via UDP over the network to WLED. The packet structure is
+the WARLS format set out in the WLED wiki where Byte 0 is the protocol used (WARLS), Byte 2 is the max time for WLED to wait for the next packet and the subsequent bytes
+are for LED addresses and colour values
+
+Currently the Rainbow Mood and Rainbow Swirl visualisations work with WLED. Moving forwards I hope to port the logic for scottlawsonbc's visualisations over to Java.
+The graphs shown in scottlawsonbc's application would also be a nice touch to implement in the android app.
+___
+
 # HyperionVisualizer for Android
 HyperionVisualizer for Android is a simple Android app that uses the music played on your mobile phone and visualizes it on your Hyperion using the UDP Listener
 ![Visualizer](https://i.imgur.com/Ay4C3q4.png)

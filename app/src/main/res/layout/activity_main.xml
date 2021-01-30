@@ -50,10 +50,10 @@
         android:id="@+id/input_port"
         android:layout_width="227dp"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/input_led_count"
         android:layout_below="@+id/input_ip"
+        android:layout_alignStart="@+id/input_led_count"
         android:ems="10"
-        android:hint="UDP Port (Default: 2391)"
+        android:hint="UDP Port (Default: 21324)"
         android:inputType="numberSigned" />
 
     <EditText
