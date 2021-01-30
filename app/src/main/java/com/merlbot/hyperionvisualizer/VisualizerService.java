@@ -234,7 +234,9 @@ public class VisualizerService extends Service {
             }
 
             byte[] getByteArray(float[] vs){
-                byte[] bytes = new byte[LED_COUNT*3];
+                byte[] bytes = new byte[LED_COUNT*4 + 2];
+                bytes[0] = (byte) 1;
+                bytes[1] = (byte) 2;
                 int[] hues = new int[LED_COUNT];
 
                 if(VISUALIZATION_METHOD == R.id.radiobutton_rainbow){
@@ -247,12 +249,13 @@ public class VisualizerService extends Service {
                     }
                 }
                 turnaround += TURNAROUND_RATE % 360;
-                for(int i = 0; i < LED_COUNT; i++){
+                for(int i = 0; i < (LED_COUNT); i++){
                     float[] hsv = new float[]{(float) hues[i], 1, vs[i]};
                     int color = Color.HSVToColor(hsv);
-                    bytes[i*3] = (byte) Color.red(color);
-                    bytes[i*3+1] = (byte) Color.green(color);
-                    bytes[i*3+2] = (byte) Color.blue(color);
+                    bytes[i*4 + 2] = (byte) i;
+                    bytes[i*4 + 3] = (byte) Color.red(color);
+                    bytes[i*4 + 4] = (byte) Color.green(color);
+                    bytes[i*4 + 5] = (byte) Color.blue(color);
                 }
                 return bytes;
             }
